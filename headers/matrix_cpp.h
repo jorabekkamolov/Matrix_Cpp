@@ -17,6 +17,8 @@ class Matrix {
   ~Matrix();
   void SetElement(int, int, double);
   bool EqMatrix(Matrix&);
+  void Add(Matrix&);
+  void Sub(Matrix&);
 };
 
 #endif

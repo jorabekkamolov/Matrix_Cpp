@@ -51,3 +51,25 @@ bool Matrix::EqMatrix(Matrix& other) {
   }
   return answer;
 }
+
+void Matrix::Add(Matrix& other) {
+  if (rows_ != other.rows_ || cols_ != other.cols_) {
+    throw std::invalid_argument("Row or Cols no equal!");
+  }
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j < cols_; j++) {
+      matrix_[i][j] += other.matrix_[i][j];
+    }
+  }
+}
+
+void Matrix::Sub(Matrix& other) {
+  if (rows_ != other.rows_ || cols_ != other.cols_) {
+    throw std::invalid_argument("Row or Cols no equal!");
+  }
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j < cols_; j++) {
+      matrix_[i][j] -= other.matrix_[i][j];
+    }
+  }
+}
