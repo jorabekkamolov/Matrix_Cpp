@@ -14,11 +14,13 @@ class Matrix {
  public:
   Matrix(int, int);
   Matrix(std::initializer_list<std::initializer_list<int>>);
+  Matrix(const Matrix&);
   ~Matrix();
   void SetElement(int, int, double);
-  bool EqMatrix(Matrix&);
-  void Add(Matrix&);
-  void Sub(Matrix&);
+  bool EqMatrix(const Matrix&);
+  void Add(const Matrix&);
+  void Sub(const Matrix&);
+  Matrix& operator=(const Matrix&);
 };
 
 #endif

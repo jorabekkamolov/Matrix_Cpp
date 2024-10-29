@@ -23,6 +23,19 @@ Matrix::Matrix(std::initializer_list<std::initializer_list<int>> list) {
   }
 }
 
+Matrix::Matrix(const Matrix& other) {
+  rows_ = other.rows_;
+  cols_ = other.cols_;
+
+  matrix_ = new double*[rows_];
+  for (int i = 0; i < rows_; i++) {
+    matrix_[i] = new double[cols_];
+    for (int j = 0; j < cols_; j++) {
+      matrix_[i][j] = other.matrix_[i][j];
+    }
+  }
+}
+
 Matrix::~Matrix() {
   for (int i = 0; i < rows_; i++) {
     delete[] matrix_[i];
@@ -36,7 +49,7 @@ void Matrix::SetElement(int r, int c, double value) {
   }
 }
 
-bool Matrix::EqMatrix(Matrix& other) {
+bool Matrix::EqMatrix(const Matrix& other) {
   bool answer = true;
   if (rows_ != other.rows_ || cols_ != other.cols_) {
     answer = false;
@@ -52,7 +65,7 @@ bool Matrix::EqMatrix(Matrix& other) {
   return answer;
 }
 
-void Matrix::Add(Matrix& other) {
+void Matrix::Add(const Matrix& other) {
   if (rows_ != other.rows_ || cols_ != other.cols_) {
     throw std::invalid_argument("Row or Cols no equal!");
   }
@@ -63,7 +76,7 @@ void Matrix::Add(Matrix& other) {
   }
 }
 
-void Matrix::Sub(Matrix& other) {
+void Matrix::Sub(const Matrix& other) {
   if (rows_ != other.rows_ || cols_ != other.cols_) {
     throw std::invalid_argument("Row or Cols no equal!");
   }
@@ -72,4 +85,25 @@ void Matrix::Sub(Matrix& other) {
       matrix_[i][j] -= other.matrix_[i][j];
     }
   }
+}
+
+Matrix& Matrix::operator=(const Matrix& other) {
+  if (this != &other) {
+    for (int i = 0; i < rows_; i++) {
+      delete[] matrix_[i];
+    }
+    delete[] matrix_;
+
+    rows_ = other.rows_;
+    cols_ = other.cols_;
+
+    matrix_ = new double*[rows_];
+    for (int i = 0; i < rows_; i++) {
+      matrix_[i] = new double[cols_];
+      for (int j = 0; j < cols_; j++) {
+        matrix_[i][j] = other.matrix_[i][j];
+      }
+    }
+  }
+  return *this;
 }

@@ -53,6 +53,15 @@ TEST(Matrix_test, Sub2) {
   EXPECT_EQ(mat1.EqMatrix(mat3), true);
 }
 
+TEST(Matrix_test, Copy) {
+  Matrix mat1 = {{1, 2, 3}, {4, 5, 6}};
+  Matrix mat2 = mat1;
+  Matrix mat3 = {{1, 3}, {1, 3}};
+  mat3 = mat2;
+  EXPECT_EQ(mat1.EqMatrix(mat2), true);
+  EXPECT_EQ(mat3.EqMatrix(mat2), true);
+}
+
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
