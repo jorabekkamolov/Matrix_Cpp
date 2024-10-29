@@ -62,6 +62,13 @@ TEST(Matrix_test, Copy) {
   EXPECT_EQ(mat3.EqMatrix(mat2), true);
 }
 
+TEST(Matrix_test, MutMatrix) {
+  Matrix mat1 = {{1, 4, 5}, {2, 4, 7}};
+  Matrix mat2 = {{1, 4, 2, 3}, {2, 3, 4, 1}, {3, 2, 1, 4}};
+  Matrix result = {{24, 26, 23, 27}, {31, 34, 27, 38}};
+  mat1.MultMatrix(mat2);
+  EXPECT_EQ(mat1.EqMatrix(result), true);
+}
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

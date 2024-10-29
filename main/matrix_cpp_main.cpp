@@ -87,7 +87,7 @@ void Matrix::Sub(const Matrix& other) {
   }
 }
 
-Matrix& Matrix::operator=(const Matrix& other) {
+void Matrix::operator=(const Matrix& other) {
   if (this != &other) {
     for (int i = 0; i < rows_; i++) {
       delete[] matrix_[i];
@@ -105,5 +105,22 @@ Matrix& Matrix::operator=(const Matrix& other) {
       }
     }
   }
-  return *this;
+}
+
+void Matrix::MultMatrix(const Matrix& other) {
+  if (cols_ != other.rows_) {
+    throw std::invalid_argument("No eq rows_ and cols_");
+  }
+  Matrix answer(rows_, other.cols_);
+
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j < other.cols_; j++) {
+      double temp = 0;
+      for (int t = 0; t < cols_; t++) {
+        temp += (matrix_[i][t] * other.matrix_[t][j]);
+      }
+      answer.matrix_[i][j] = temp;
+    }
+  }
+  *this = answer;
 }

@@ -20,7 +20,8 @@ class Matrix {
   bool EqMatrix(const Matrix&);
   void Add(const Matrix&);
   void Sub(const Matrix&);
-  Matrix& operator=(const Matrix&);
+  void operator=(const Matrix&);
+  void MultMatrix(const Matrix&);
 };
 
 #endif
