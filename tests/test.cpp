@@ -62,13 +62,34 @@ TEST(Matrix_test, Copy) {
   EXPECT_EQ(mat3.EqMatrix(mat2), true);
 }
 
-TEST(Matrix_test, MutMatrix) {
+TEST(Matrix_test, MutMatrix1) {
   Matrix mat1 = {{1, 4, 5}, {2, 4, 7}};
   Matrix mat2 = {{1, 4, 2, 3}, {2, 3, 4, 1}, {3, 2, 1, 4}};
   Matrix result = {{24, 26, 23, 27}, {31, 34, 27, 38}};
   mat1.MultMatrix(mat2);
   EXPECT_EQ(mat1.EqMatrix(result), true);
 }
+
+TEST(Matrix_test, MutMatrix2) {
+  Matrix mat1 = {{1, 4, 5}, {2, 4, 7}};
+  Matrix mat2 = {{1, 4, 2, 3}, {2, 3, 4, 1}};
+  EXPECT_THROW(mat1.MultMatrix(mat2), std::invalid_argument);
+}
+
+TEST(Matrix_test, Transpose) {
+  Matrix mat1 = {{1, 4, 5}, {2, 4, 7}, {1, 2, 4}};
+  Matrix res = mat1.Transpose();
+  Matrix result = {{1, 2, 1}, {4, 4, 2}, {5, 7, 4}};
+  EXPECT_EQ(res.EqMatrix(result), true);
+}
+
+TEST(Matrix_test, Minor) {
+  Matrix mat1 = {{1, 4, 5}, {2, 4, 7}, {1, 2, 4}};
+  Matrix res = mat1.Minor(0, 0);
+  Matrix result = {{4, 7}, {2, 4}};
+  EXPECT_EQ(res.EqMatrix(result), true);
+}
+
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

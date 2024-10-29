@@ -22,6 +22,9 @@ class Matrix {
   void Sub(const Matrix&);
   void operator=(const Matrix&);
   void MultMatrix(const Matrix&);
+  Matrix Transpose();
+  Matrix Minor(int, int);
+  double Determinant();
 };
 
 #endif

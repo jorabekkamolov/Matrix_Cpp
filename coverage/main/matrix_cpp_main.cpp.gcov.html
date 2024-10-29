@@ -31,18 +31,18 @@
             <td class="headerValue">Coverage_Report.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">98.8&nbsp;%</td>
-            <td class="headerCovTableEntry">83</td>
-            <td class="headerCovTableEntry">82</td>
+            <td class="headerCovTableEntryMed">89.5&nbsp;%</td>
+            <td class="headerCovTableEntry">114</td>
+            <td class="headerCovTableEntry">102</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2024-10-30 00:18:17</td>
+            <td class="headerValue">2024-10-30 03:49:13</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntryHi">100.0&nbsp;%</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryHi">92.3&nbsp;%</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">12</td>
           </tr>
                   <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
                 </table>
@@ -62,28 +62,28 @@
 <pre class="source">
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;../headers/matrix_cpp.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : </span>
-<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC tlaBgGNC">           4 : Matrix::Matrix(int r, int c) : rows_(r), cols_(c) {</span></span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">           4 :   matrix_ = new double*[rows_];</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          12 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">          20 :     matrix_[i] = new double[cols_]{0.0};</span></span>
+<span id="L3"><span class="lineNum">       3</span> <span class="tlaGNC tlaBgGNC">           6 : Matrix::Matrix(int r, int c) : rows_(r), cols_(c) {</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC">           6 :   matrix_ = new double*[rows_];</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          19 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">          33 :     matrix_[i] = new double[cols_]{0.0};</span></span>
 <span id="L7"><span class="lineNum">       7</span>              :   }</span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           4 : }</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           6 : }</span></span>
 <span id="L9"><span class="lineNum">       9</span>              : </span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          18 : Matrix::Matrix(std::initializer_list&lt;std::initializer_list&lt;int&gt;&gt; list) {</span></span>
-<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          18 :   rows_ = list.size();</span></span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          18 :   cols_ = list.begin()-&gt;size();</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">          24 : Matrix::Matrix(std::initializer_list&lt;std::initializer_list&lt;int&gt;&gt; list) {</span></span>
+<span id="L11"><span class="lineNum">      11</span> <span class="tlaGNC">          24 :   rows_ = list.size();</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">          24 :   cols_ = list.begin()-&gt;size();</span></span>
 <span id="L13"><span class="lineNum">      13</span>              : </span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          18 :   matrix_ = new double*[rows_];</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">          18 :   int i = 0;</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">          57 :   for (const auto&amp; row : list) {</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">          39 :     matrix_[i] = new double[cols_];</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          39 :     int j = 0;</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">         159 :     for (const auto&amp; value : row) {</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">         120 :       matrix_[i][j++] = static_cast&lt;double&gt;(value);</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">          24 :   matrix_ = new double*[rows_];</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">          24 :   int i = 0;</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">          78 :   for (const auto&amp; row : list) {</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">          54 :     matrix_[i] = new double[cols_];</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">          54 :     int j = 0;</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">         219 :     for (const auto&amp; value : row) {</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">         165 :       matrix_[i][j++] = static_cast&lt;double&gt;(value);</span></span>
 <span id="L21"><span class="lineNum">      21</span>              :     }</span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          39 :     ++i;</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">          54 :     ++i;</span></span>
 <span id="L23"><span class="lineNum">      23</span>              :   }</span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          18 : }</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">          24 : }</span></span>
 <span id="L25"><span class="lineNum">      25</span>              : </span>
 <span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           1 : Matrix::Matrix(const Matrix&amp; other) {</span></span>
 <span id="L27"><span class="lineNum">      27</span> <span class="tlaGNC">           1 :   rows_ = other.rows_;</span></span>
@@ -98,12 +98,12 @@
 <span id="L36"><span class="lineNum">      36</span>              :   }</span>
 <span id="L37"><span class="lineNum">      37</span> <span class="tlaGNC">           1 : }</span></span>
 <span id="L38"><span class="lineNum">      38</span>              : </span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          23 : Matrix::~Matrix() {</span></span>
-<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">          72 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
-<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          49 :     delete[] matrix_[i];</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">          31 : Matrix::~Matrix() {</span></span>
+<span id="L40"><span class="lineNum">      40</span> <span class="tlaGNC">         100 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
+<span id="L41"><span class="lineNum">      41</span> <span class="tlaGNC">          69 :     delete[] matrix_[i];</span></span>
 <span id="L42"><span class="lineNum">      42</span>              :   }</span>
-<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          23 :   delete[] matrix_;</span></span>
-<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">          23 : }</span></span>
+<span id="L43"><span class="lineNum">      43</span> <span class="tlaGNC">          31 :   delete[] matrix_;</span></span>
+<span id="L44"><span class="lineNum">      44</span> <span class="tlaGNC">          31 : }</span></span>
 <span id="L45"><span class="lineNum">      45</span>              : </span>
 <span id="L46"><span class="lineNum">      46</span> <span class="tlaGNC">           4 : void Matrix::SetElement(int r, int c, double value) {</span></span>
 <span id="L47"><span class="lineNum">      47</span> <span class="tlaGNC">           4 :   if (r &lt; rows_ &amp;&amp; c &lt; cols_) {</span></span>
@@ -111,20 +111,20 @@
 <span id="L49"><span class="lineNum">      49</span>              :   }</span>
 <span id="L50"><span class="lineNum">      50</span> <span class="tlaGNC">           4 : }</span></span>
 <span id="L51"><span class="lineNum">      51</span>              : </span>
-<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">           8 : bool Matrix::EqMatrix(const Matrix&amp; other) {</span></span>
-<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">           8 :   bool answer = true;</span></span>
-<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">           8 :   if (rows_ != other.rows_ || cols_ != other.cols_) {</span></span>
+<span id="L52"><span class="lineNum">      52</span> <span class="tlaGNC">          10 : bool Matrix::EqMatrix(const Matrix&amp; other) {</span></span>
+<span id="L53"><span class="lineNum">      53</span> <span class="tlaGNC">          10 :   bool answer = true;</span></span>
+<span id="L54"><span class="lineNum">      54</span> <span class="tlaGNC">          10 :   if (rows_ != other.rows_ || cols_ != other.cols_) {</span></span>
 <span id="L55"><span class="lineNum">      55</span> <span class="tlaGNC">           1 :     answer = false;</span></span>
 <span id="L56"><span class="lineNum">      56</span>              :   } else {</span>
-<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">          21 :     for (int i = 0; i &lt; rows_; i++) {</span></span>
-<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">          56 :       for (int j = 0; j &lt; cols_; j++) {</span></span>
-<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">          42 :         if (matrix_[i][j] != other.matrix_[i][j]) {</span></span>
+<span id="L57"><span class="lineNum">      57</span> <span class="tlaGNC">          28 :     for (int i = 0; i &lt; rows_; i++) {</span></span>
+<span id="L58"><span class="lineNum">      58</span> <span class="tlaGNC">          74 :       for (int j = 0; j &lt; cols_; j++) {</span></span>
+<span id="L59"><span class="lineNum">      59</span> <span class="tlaGNC">          55 :         if (matrix_[i][j] != other.matrix_[i][j]) {</span></span>
 <span id="L60"><span class="lineNum">      60</span> <span class="tlaGNC">           1 :           answer = false;</span></span>
 <span id="L61"><span class="lineNum">      61</span>              :         }</span>
 <span id="L62"><span class="lineNum">      62</span>              :       }</span>
 <span id="L63"><span class="lineNum">      63</span>              :     }</span>
 <span id="L64"><span class="lineNum">      64</span>              :   }</span>
-<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">           8 :   return answer;</span></span>
+<span id="L65"><span class="lineNum">      65</span> <span class="tlaGNC">          10 :   return answer;</span></span>
 <span id="L66"><span class="lineNum">      66</span>              : }</span>
 <span id="L67"><span class="lineNum">      67</span>              : </span>
 <span id="L68"><span class="lineNum">      68</span> <span class="tlaGNC">           2 : void Matrix::Add(const Matrix&amp; other) {</span></span>
@@ -169,11 +169,11 @@
 <span id="L107"><span class="lineNum">     107</span>              :   }</span>
 <span id="L108"><span class="lineNum">     108</span> <span class="tlaGNC">           2 : }</span></span>
 <span id="L109"><span class="lineNum">     109</span>              : </span>
-<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC">           1 : void Matrix::MultMatrix(const Matrix&amp; other) {</span></span>
-<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">           1 :   if (cols_ != other.rows_) {</span></span>
-<span id="L112"><span class="lineNum">     112</span> <span class="tlaUNC tlaBgUNC">           0 :     throw std::invalid_argument(&quot;No eq rows_ and cols_&quot;);</span></span>
+<span id="L110"><span class="lineNum">     110</span> <span class="tlaGNC">           2 : void Matrix::MultMatrix(const Matrix&amp; other) {</span></span>
+<span id="L111"><span class="lineNum">     111</span> <span class="tlaGNC">           2 :   if (cols_ != other.rows_) {</span></span>
+<span id="L112"><span class="lineNum">     112</span> <span class="tlaGNC">           1 :     throw std::invalid_argument(&quot;No eq rows_ and cols_&quot;);</span></span>
 <span id="L113"><span class="lineNum">     113</span>              :   }</span>
-<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC tlaBgGNC">           1 :   Matrix answer(rows_, other.cols_);</span></span>
+<span id="L114"><span class="lineNum">     114</span> <span class="tlaGNC">           1 :   Matrix answer(rows_, other.cols_);</span></span>
 <span id="L115"><span class="lineNum">     115</span>              : </span>
 <span id="L116"><span class="lineNum">     116</span> <span class="tlaGNC">           3 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
 <span id="L117"><span class="lineNum">     117</span> <span class="tlaGNC">          10 :     for (int j = 0; j &lt; other.cols_; j++) {</span></span>
@@ -186,6 +186,53 @@
 <span id="L124"><span class="lineNum">     124</span>              :   }</span>
 <span id="L125"><span class="lineNum">     125</span> <span class="tlaGNC">           1 :   *this = answer;</span></span>
 <span id="L126"><span class="lineNum">     126</span> <span class="tlaGNC">           1 : }</span></span>
+<span id="L127"><span class="lineNum">     127</span>              : </span>
+<span id="L128"><span class="lineNum">     128</span> <span class="tlaGNC">           1 : Matrix Matrix::Transpose() {</span></span>
+<span id="L129"><span class="lineNum">     129</span> <span class="tlaGNC">           1 :   Matrix transposed(cols_, rows_);</span></span>
+<span id="L130"><span class="lineNum">     130</span> <span class="tlaGNC">           4 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
+<span id="L131"><span class="lineNum">     131</span> <span class="tlaGNC">          12 :     for (int j = 0; j &lt; cols_; j++) {</span></span>
+<span id="L132"><span class="lineNum">     132</span> <span class="tlaGNC">           9 :       transposed.matrix_[j][i] = matrix_[i][j];</span></span>
+<span id="L133"><span class="lineNum">     133</span>              :     }</span>
+<span id="L134"><span class="lineNum">     134</span>              :   }</span>
+<span id="L135"><span class="lineNum">     135</span> <span class="tlaGNC">           1 :   return transposed;</span></span>
+<span id="L136"><span class="lineNum">     136</span>              : }</span>
+<span id="L137"><span class="lineNum">     137</span>              : </span>
+<span id="L138"><span class="lineNum">     138</span> <span class="tlaGNC">           1 : Matrix Matrix::Minor(int r, int c) {</span></span>
+<span id="L139"><span class="lineNum">     139</span> <span class="tlaGNC">           1 :   Matrix minor(rows_ - 1, cols_ - 1);</span></span>
+<span id="L140"><span class="lineNum">     140</span> <span class="tlaGNC">           1 :   int minor_r = 0, minor_c = 0;</span></span>
+<span id="L141"><span class="lineNum">     141</span> <span class="tlaGNC">           4 :   for (int i = 0; i &lt; rows_; i++) {</span></span>
+<span id="L142"><span class="lineNum">     142</span> <span class="tlaGNC">           3 :     if (i == r) {</span></span>
+<span id="L143"><span class="lineNum">     143</span> <span class="tlaGNC">           1 :       continue;</span></span>
+<span id="L144"><span class="lineNum">     144</span>              :     }</span>
+<span id="L145"><span class="lineNum">     145</span> <span class="tlaGNC">           2 :     minor_c = 0;</span></span>
+<span id="L146"><span class="lineNum">     146</span> <span class="tlaGNC">           8 :     for (int j = 0; j &lt; cols_; j++) {</span></span>
+<span id="L147"><span class="lineNum">     147</span> <span class="tlaGNC">           6 :       if (j == c) {</span></span>
+<span id="L148"><span class="lineNum">     148</span> <span class="tlaGNC">           2 :         continue;</span></span>
+<span id="L149"><span class="lineNum">     149</span>              :       }</span>
+<span id="L150"><span class="lineNum">     150</span> <span class="tlaGNC">           4 :       minor.matrix_[minor_r][minor_c++] = matrix_[i][j];</span></span>
+<span id="L151"><span class="lineNum">     151</span>              :     }</span>
+<span id="L152"><span class="lineNum">     152</span> <span class="tlaGNC">           2 :     minor_r++;</span></span>
+<span id="L153"><span class="lineNum">     153</span>              :   }</span>
+<span id="L154"><span class="lineNum">     154</span> <span class="tlaGNC">           1 :   return minor;</span></span>
+<span id="L155"><span class="lineNum">     155</span>              : }</span>
+<span id="L156"><span class="lineNum">     156</span>              : </span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaUNC tlaBgUNC">           0 : double Matrix::Determinant() {</span></span>
+<span id="L158"><span class="lineNum">     158</span> <span class="tlaUNC">           0 :   if (rows_ != cols_) {</span></span>
+<span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC">           0 :     throw std::invalid_argument(&quot;Error: Matrix is not square&quot;);</span></span>
+<span id="L160"><span class="lineNum">     160</span>              :   }</span>
+<span id="L161"><span class="lineNum">     161</span>              : </span>
+<span id="L162"><span class="lineNum">     162</span> <span class="tlaUNC">           0 :   if (rows_ == 2 &amp;&amp; cols_ == 2) {</span></span>
+<span id="L163"><span class="lineNum">     163</span> <span class="tlaUNC">           0 :     return (matrix_[0][0] * matrix_[1][1]) - (matrix_[0][1] * matrix_[1][0]);</span></span>
+<span id="L164"><span class="lineNum">     164</span>              :   }</span>
+<span id="L165"><span class="lineNum">     165</span>              : </span>
+<span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 :   double det = 0.0;</span></span>
+<span id="L167"><span class="lineNum">     167</span> <span class="tlaUNC">           0 :   for (int i = 0; i &lt; cols_; i++) {</span></span>
+<span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 :     Matrix minor_matrix = Minor(0, i);</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaUNC">           0 :     double sign = (i % 2 == 0) ? 1.0 : -1.0;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaUNC">           0 :     det += sign * matrix_[0][i] * minor_matrix.Determinant();</span></span>
+<span id="L171"><span class="lineNum">     171</span> <span class="tlaUNC">           0 :   }</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaUNC">           0 :   return det;</span></span>
+<span id="L173"><span class="lineNum">     173</span>              : }</span>
         </pre>
               </td>
             </tr>

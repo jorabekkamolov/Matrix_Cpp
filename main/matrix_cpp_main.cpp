@@ -124,3 +124,50 @@ void Matrix::MultMatrix(const Matrix& other) {
   }
   *this = answer;
 }
+
+Matrix Matrix::Transpose() {
+  Matrix transposed(cols_, rows_);
+  for (int i = 0; i < rows_; i++) {
+    for (int j = 0; j < cols_; j++) {
+      transposed.matrix_[j][i] = matrix_[i][j];
+    }
+  }
+  return transposed;
+}
+
+Matrix Matrix::Minor(int r, int c) {
+  Matrix minor(rows_ - 1, cols_ - 1);
+  int minor_r = 0, minor_c = 0;
+  for (int i = 0; i < rows_; i++) {
+    if (i == r) {
+      continue;
+    }
+    minor_c = 0;
+    for (int j = 0; j < cols_; j++) {
+      if (j == c) {
+        continue;
+      }
+      minor.matrix_[minor_r][minor_c++] = matrix_[i][j];
+    }
+    minor_r++;
+  }
+  return minor;
+}
+
+double Matrix::Determinant() {
+  if (rows_ != cols_) {
+    throw std::invalid_argument("Error: Matrix is not square");
+  }
+
+  if (rows_ == 2 && cols_ == 2) {
+    return (matrix_[0][0] * matrix_[1][1]) - (matrix_[0][1] * matrix_[1][0]);
+  }
+
+  double det = 0.0;
+  for (int i = 0; i < cols_; i++) {
+    Matrix minor_matrix = Minor(0, i);
+    double sign = (i % 2 == 0) ? 1.0 : -1.0;
+    det += sign * matrix_[0][i] * minor_matrix.Determinant();
+  }
+  return det;
+}
