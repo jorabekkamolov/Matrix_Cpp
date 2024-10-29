@@ -11,14 +11,20 @@ BUILD_DIR = build
 COV_DIR = coverage
 VAL_DIR = valgrind
 
-all: clean test valgrind coverage open_coverage
+all: clean format cppcheck test valgrind coverage open_coverage
 
 clean:
-	rm -rf $(BUILD_DIR) $(COV_DIR) Coverage_Report.info
+	rm -rf $(BUILD_DIR) $(COV_DIR) Coverage_Report.info $(VAL_DIR)
 
 test:
 	mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(TEST) $(MAIN) $(LDFLAGS) -o $(BUILD_DIR)/matrix
+
+format:
+	clang-format -i $(MAIN) $(HEADER) $(TEST)
+
+cppcheck:
+	cppcheck --language=c++ --std=c++17 $(MAIN) $(TEST) $(HEADER)
 
 valgrind:
 	mkdir -p $(VAL_DIR)
@@ -36,6 +42,6 @@ coverage: $(BUILD_DIR)/matrix
 
 
 open_coverage:
-	@xdg-open $(COV_DIR)/index.html || open $(COV_DIR)/index.html || echo "Unable to open coverage report."
+	@google-chrome $(COV_DIR)/index.html || open $(COV_DIR)/index.html || echo "Unable to open coverage report."
 
-.PHONY: all clean test run coverage open_coverage valgrind
+.PHONY: all clean test run coverage open_coverage valgrind format cppcheck
